@@ -19,3 +19,19 @@ services:
     depends_on:
       - apitwo
     network_mode: "service:apitwo"
+
+  apione:
+    image: ${DOCKER_REGISTRY-}apione:${TAG:-latest}
+    init: true
+    ports:
+      - "60001:50001"
+  
+  apione-dapr:
+    image: "daprio/daprd:1.6.0"
+    command: ["./daprd",
+      "-app-id", "apione",
+      "-app-port", "80"
+      ]
+    depends_on:
+      - apione
+    network_mode: "service:apione"
