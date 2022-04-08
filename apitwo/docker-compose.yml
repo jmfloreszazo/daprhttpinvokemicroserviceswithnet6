@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+
+  apitwo:
+    image: ${DOCKER_REGISTRY-}apitwo:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: apitwo/Dockerfile
+    ports:
+      - "60002:50001"
+  
+  apitwo-dapr:
+    image: "daprio/daprd:1.6.0"
+    command: ["./daprd",
+      "-app-id", "apitwo",
+      "-app-port", "80"
+      ]
+    depends_on:
+      - apitwo
+    network_mode: "service:apitwo"
