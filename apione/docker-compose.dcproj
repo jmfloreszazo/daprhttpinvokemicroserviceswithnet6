@@ -6,7 +6,7 @@
     <ProjectGuid>729f6caa-ed52-48d9-acfe-0dbfc4d8a06a</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>smdp-microservices-guest-api</DockerServiceName>
+    <DockerServiceName>test</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">
